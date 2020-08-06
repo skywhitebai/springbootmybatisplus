@@ -60,9 +60,13 @@ public class CodeGeneratorTbk {
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("模块名"));
         pc.setParent("com.sky.springbootmybatisplus");
+        pc.setEntity("entity.tbk");
         pc.setMapper("mapper.tbk");
-        Map pathInfo = new HashMap<>();
-
+        pc.setService("service.tbk");
+        pc.setServiceImpl("service.tbk.impl");
+        pc.setController("controller.tbk");
+        //Map pathInfo = new HashMap<>();
+        //pc.setPathInfo(pathInfo);
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -85,7 +89,7 @@ public class CodeGeneratorTbk {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
+                return projectPath + "/src/main/resources/mapper/tbk/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });

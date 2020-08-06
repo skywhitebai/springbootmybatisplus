@@ -1,6 +1,6 @@
-package com.sky.springbootmybatisplus.service;
+package com.sky.springbootmybatisplus.service.test;
 
-import com.sky.springbootmybatisplus.entity.Test;
+import com.sky.springbootmybatisplus.entity.test.Test;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author jobob
- * @since 2020-08-06
+ * @since 2020-08-07
  */
 public interface ITestService extends IService<Test> {
 

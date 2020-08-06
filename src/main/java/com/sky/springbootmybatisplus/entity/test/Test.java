@@ -1,4 +1,4 @@
-package com.sky.springbootmybatisplus.entity;
+package com.sky.springbootmybatisplus.entity.test;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author jobob
- * @since 2020-08-06
+ * @since 2020-08-07
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

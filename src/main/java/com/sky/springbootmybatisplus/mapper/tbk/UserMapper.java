@@ -1,6 +1,6 @@
 package com.sky.springbootmybatisplus.mapper.tbk;
 
-import com.sky.springbootmybatisplus.entity.User;
+import com.sky.springbootmybatisplus.entity.tbk.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author jobob
- * @since 2020-08-06
+ * @since 2020-08-07
  */
 public interface UserMapper extends BaseMapper<User> {
 
