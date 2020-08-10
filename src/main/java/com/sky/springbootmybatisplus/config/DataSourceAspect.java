@@ -16,11 +16,11 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class DataSourceAspect {
 
-    @Pointcut("execution(* com.sky.springbootmybatisplus.mapper.test..*.*(..))")
+    @Pointcut("execution(* com.sky.springbootmybatisplus.mapper.test1..*.*(..))")
     private void db1Aspect() {
     }
 
-    @Pointcut("execution(* com.sky.springbootmybatisplus.mapper.tbk.*.*(..))")
+    @Pointcut("execution(* com.sky.springbootmybatisplus.mapper.test2.*.*(..))")
     private void db2Aspect() {
     }
 

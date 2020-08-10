@@ -1,4 +1,4 @@
-package com.sky.springbootmybatisplus.entity.tbk;
+package com.sky.springbootmybatisplus.entity.test2;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -12,31 +12,34 @@ import lombok.EqualsAndHashCode;
  * 
  * </p>
  *
- * @author jobob
- * @since 2020-08-07
+ * @author sky
+ * @since 2020-08-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class User implements Serializable {
+public class Test2 implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private String userName;
+    private String testName;
 
-    private String password;
-
-    private Integer age;
-
-    private Long createBy;
+    private String testValue;
 
     private LocalDateTime createTime;
 
-    private Long updateBy;
+    private Long createBy;
 
     private LocalDateTime updateTime;
+
+    private Long updateBy;
+
+    /**
+     * 1删除0正常
+     */
+    private Integer dr;
 
 
 }

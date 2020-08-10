@@ -64,7 +64,7 @@ public class MybatisPlusConfig {
         targetDataSources.put(DBTypeEnum.db1.getValue(), db1);
         targetDataSources.put(DBTypeEnum.db2.getValue(), db2);
         dynamicDataSource.setTargetDataSources(targetDataSources);
-        dynamicDataSource.setDefaultTargetDataSource(db2); // 程序默认数据源，这个要根据程序调用数据源频次，经常把常调用的数据源作为默认
+        dynamicDataSource.setDefaultTargetDataSource(db1); // 程序默认数据源，这个要根据程序调用数据源频次，经常把常调用的数据源作为默认
 
         return dynamicDataSource;
     }

@@ -1,9 +1,11 @@
-package com.sky.springbootmybatisplus.entity.test;
+package com.sky.springbootmybatisplus.entity.test1;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,11 +15,11 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author jobob
- * @since 2020-08-07
+ * @since 2020-08-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Test implements Serializable {
+public class Test1 implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,10 +30,6 @@ public class Test implements Serializable {
 
     private String testValue;
 
-    private Integer status;
-
-    private Boolean sex;
-
     private LocalDateTime createTime;
 
     private Long createBy;
@@ -39,6 +37,12 @@ public class Test implements Serializable {
     private LocalDateTime updateTime;
 
     private Long updateBy;
+
+    /**
+     * 1删除0正常
+     */
+    @TableLogic
+    private Integer dr;
 
 
 }

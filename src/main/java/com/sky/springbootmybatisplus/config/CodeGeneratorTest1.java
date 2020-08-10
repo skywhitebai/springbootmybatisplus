@@ -6,14 +6,19 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.FileType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
-import java.util.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
-public class CodeGeneratorTbk {
+public class CodeGeneratorTest1 {
 
     /**
      * <p>
@@ -42,14 +47,14 @@ public class CodeGeneratorTbk {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("jobob");
+        gc.setAuthor("sky");
         gc.setOpen(false);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/tbk?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/test1?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
@@ -60,13 +65,11 @@ public class CodeGeneratorTbk {
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("模块名"));
         pc.setParent("com.sky.springbootmybatisplus");
-        pc.setEntity("entity.tbk");
-        pc.setMapper("mapper.tbk");
-        pc.setService("service.tbk");
-        pc.setServiceImpl("service.tbk.impl");
-        pc.setController("controller.tbk");
-        //Map pathInfo = new HashMap<>();
-        //pc.setPathInfo(pathInfo);
+        pc.setEntity("entity.test1");
+        pc.setMapper("mapper.test1");
+        pc.setService("service.test1");
+        pc.setServiceImpl("service.test1.impl");
+        pc.setController("controller.test1");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -89,25 +92,28 @@ public class CodeGeneratorTbk {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/tbk/" + pc.getModuleName()
+                return projectPath + "/src/main/resources/mapper/test1/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
-        /*
         cfg.setFileCreate(new IFileCreate() {
             @Override
             public boolean isCreate(ConfigBuilder configBuilder, FileType fileType, String filePath) {
                 // 判断自定义文件夹是否需要创建
-                checkDir("调用默认方法创建的目录，自定义目录用");
-                if (fileType == FileType.MAPPER) {
-                    // 已经生成 mapper 文件判断存在，不想重新生成返回 false
-                    return !new File(filePath).exists();
+                checkDir(filePath);
+                boolean exist=new File(filePath).exists();
+                if(!exist){
+                    //如果不存在，则生成
+                    return true;
                 }
-                // 允许生成模板文件
-                return true;
+                if(fileType == FileType.ENTITY){
+                    //如果是实体类，则生成覆盖
+                    return true;
+                }
+                //其他不覆盖
+                return false;
             }
         });
-        */
         cfg.setFileOutConfigList(focList);
         mpg.setCfg(cfg);
 
